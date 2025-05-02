@@ -1,9 +1,14 @@
-package dev.java10x.CadastroDeNinjas;
+package dev.java10x.CadastroDeNinjas.Ninjas;
 
+
+
+import dev.java10x.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 // Entity ele trasnforma uma classe em uma entidade do DB
@@ -18,6 +23,10 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+    //  @ManyToOne um ninja tem uma unica missao
+    @ManyToOne
+    @JoinColumn(name = "missoes_id") // foreing key ou chave estrangeira 
+    private MissoesModel missoes;
    
     
     public NinjaModel() {
